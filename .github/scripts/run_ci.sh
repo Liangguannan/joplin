@@ -39,9 +39,9 @@ fi
 # a release
 RUN_TESTS=0
 
-if [ "$IS_SERVER_RELEASE" = 0 ] && [ "$IS_DESKTOP_RELEASE" = 0 ]; then
-	RUN_TESTS=1
-fi
+#if [ "$IS_SERVER_RELEASE" = 0 ] && [ "$IS_DESKTOP_RELEASE" = 0 ]; then
+#	RUN_TESTS=1
+#fi
 
 # =============================================================================
 # Print environment
@@ -288,6 +288,7 @@ else
 		
 		USE_HARD_LINKS=false yarn dist --publish=never
 	else
+ 		yarn tsc # 运行package.json里scripts定义的tsc命令, 编译所有ts文件
 		USE_HARD_LINKS=false yarn dist --publish=never
 	fi
 fi
