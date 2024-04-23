@@ -291,7 +291,7 @@ else
  		yarn tsc # 运行package.json里scripts定义的tsc命令, 编译所有ts文件
 		USE_HARD_LINKS=false yarn dist --publish=never
   		cd dist
-    		ls -al
+    		du -a --max-depth=1 | sort -hr
       		find . -type f -name '*.sha512' -exec sh -c "cat {} && echo ''" \;
 	fi
 fi
